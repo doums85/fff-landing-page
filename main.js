@@ -1,6 +1,5 @@
 // Toggle NAV-MENU
-
-  const toggle_btn = document.getElementById('toggle'),
+ const toggle_btn = document.getElementById('toggle'),
     navId = document.getElementById('nav__toggle');
 
     if (toggle_btn && navId) {
@@ -9,8 +8,8 @@
       navId.classList.toggle('show');
     });
   }
-/*====== toggleMenu('toggle', 'nav__toggle');
- =======*/
+
+
 //∞ C O N T A I N E R S
 gsap.from('.container-left', {
   delay: 2,
