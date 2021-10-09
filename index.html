@@ -149,7 +149,7 @@
       <div class="dots_wrapper">
         <ul class="dots">
           <template x-for="slide in slides" :key="slide">
-            <li :class="activeSlide === slide.id ? 'dot active' : 'dot'" x-on:click="activeSlide = slide.id"></li>
+            <li :class="activeSlide === slide.id ? 'active' : 'dot'" x-on:click="activeSlide = slide.id"></li>
           </template>
         </ul>
       </div>
