@@ -296,6 +296,18 @@ width: 100px;
   text-transform: capitalize;
 }
 
+.product-btn{
+  background: var(--tertiary-color);
+  font-size: 0.9rem;
+  padding: 0.7rem;
+  margin-top: 0.8rem;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+}
+
+.product-btn a {
+  color: #000;
+}
 
 @keyframes fadeIn {
   0% {
