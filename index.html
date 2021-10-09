@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css">
+  <title>France Shop | Landing Page</title>
+</head>
+
+<body>
+  <!--∞ O V E R L A Y -->
+  <div class="overlay first"></div>
+  <div class="overlay second"></div>
+  <div class="overlay third"></div>
+
+  <!--∞ C O N T A I N E R S -->
+  <div class="container-left"></div>
+  <div class="container-right"></div>
+
+  <!--∞ S T R I P S -->
+  <div>
+    <div class="strip-left"></div>
+    <div class="strip-right"></div>
+  </div>
+
+  <!--∞ N A V -->
+  <header>
+    <nav  class="nav">
+      <div class="nav__inner">
+        <div class="logo">
+          <h3 class="nav__logo">FFF <sup>&reg;</sup></h3>
+        </div>
+
+        <div class="nav__menu" id="nav__toggle">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#" class="nav__link">Tenues officielles</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Supporters</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Lifestyle</a>
+            </li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Accessoires</a>
+            </li>
+            <li class="nav__item">
+              <button class="search_btn">
+                <i class='bx bx-search-alt-2'></i>
+              </button>
+              <button class="cart_btn">
+                <i class='bx bxs-shopping-bag'></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="btn-wrapper">
+        <button class="search_btn">
+          <i class='bx bx-search-alt-2'></i>
+        </button>
+        <button class="cart_btn">
+          <i class='bx bxs-shopping-bag'></i>
+        </button>
+      </div>
+
+      <button class="menu_toggle_btn" id="toggle">
+        <i class='bx bx-grid-alt nav__logo'></i>
+      </button>
+    </nav>
+  </header>
+
+  <!--∞ S O C I A L   L I N K -->
+  <div class="social">
+    <ul class="social__list">
+      <li class="social__item"><i class='bx bxl-facebook'></i></li>
+      <li class="social__item"><i class='bx bxl-instagram'></i></li>
+      <li class="social__item"><i class='bx bxl-twitter'></i></li>
+    </ul>
+  </div>
+
+  <!--∞ S L I D E R -->
+
+  <div x-data="{ activeSlide: 1, slides: [
+        {
+          id: 1,
+          image: './img/benzema.png',
+          title: 'Équipe masculine',
+          subTitle: 'KB9'
+        },
+        {
+          id: 2,
+          image: './img/maillot-femme.png',
+          title: 'Équipe féminine',
+          subTitle: 'K.Dali'
+        },
+        {
+          id: 3,
+          image: './img/lifestyle.png',
+          title: 'LifeStyle',
+          subTitle: 'Le style FFF'
+        },
+        {
+          id: 4,
+          image: './img/pull.png',
+          title: 'Nouvelle Collection',
+          subTitle: 'Automne/Hiver'
+        },
+        ] }" class="product">
+    <template x-for="slide in slides" :key="slide">
+      <div x-show="activeSlide === slide.id" :class="activeSlide === slide.id ? 'product-active' : 'product'">
+        <img :src="slide.image" class="product_img" alt="product_img" />
+        <div class="product_text">
+          <h1 x-text="slide.title" class="product-title"></h1>
+          <p x-text="slide.subTitle" class="product-sub"></p>
+        </div>
+      </div>
+    </template>
+
+    <!--∞ B O T T O M - N A V -->
+    <div class="bottom_nav">
+      <div class="slide_nav_wrapper">
+        <button class="prev direction_btn">
+          <i x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1"
+            class='bx bxs-chevron-right'></i>
+        </button>
+
+        <button class="next direction_btn">
+          <i x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1"
+            class='bx bxs-chevron-left'></i>
+        </button>
+      </div>
+
+      <div class="dots_wrapper">
+        <ul class="dots">
+          <template x-for="slide in slides" :key="slide">
+            <li :class="{
+                  'dot active': activeSlide === slide.id,
+                  'dot': activeSlide !== slide.id
+                }" x-on:click="activeSlide = slide.id"></li>
+          </template>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <!--====== Icon github ======-->
+<a id="github" href=""  target="_blank">
+  <i class='bx bxl-github'></i>
+</a>
+
+  <!--====== Script ======-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v1.9.5/dist/alpine.js"></script>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>
