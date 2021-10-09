@@ -250,9 +250,11 @@ header {
   z-index: -10;
   animation: translateAnimation 4s ease-in-out infinite;
 }
-.product-1 .product_img{
-width: 100px;
+
+.product-1 .product_img {
+  width: 100px;
 }
+
 @keyframes translateAnimation {
   0% {
     transform: translate(-50%, -46%);
@@ -271,8 +273,8 @@ width: 100px;
 /*∞ P R O D U C T - T E X T */
 .product_text {
   position: absolute;
-  width: 100vw;
-  bottom: clamp(3%, 0%, -10%);
+  width: 80vw;
+  bottom: clamp(-2%, -10%, -10%);
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -296,7 +298,7 @@ width: 100px;
   text-transform: capitalize;
 }
 
-.product-btn{
+.product-btn {
   background: var(--tertiary-color);
   font-size: 0.9rem;
   padding: 0.7rem;
@@ -336,6 +338,7 @@ width: 100px;
   display: grid;
   position: absolute;
   left: 145px;
+  left: clamp(40px, 8%, 145px)
 }
 
 .slide_nav_wrapper button {
@@ -352,21 +355,26 @@ width: 100px;
   font-weight: 600;
 }
 
-.slide_nav_wrapper button:nth-child(1) i {
+.slide_nav_wrapper button:first-child i {
   color: var(--tertiary-color);
 }
 
-.slide_nav_wrapper button:nth-child(1):hover {
+.slide_nav_wrapper button:first-child:hover {
   background-color: var(--tertiary-color);
 }
 
-.slide_nav_wrapper button:nth-child(2) i {
+.slide_nav_wrapper button:first-child:hover i {
+  color: var(--primary-color);
+}
+
+.slide_nav_wrapper button:last-child i {
   color: var(--secondary-color);
 }
 
-.slide_nav_wrapper button:nth-child(2):hover {
+.slide_nav_wrapper button:last-child:hover {
   background-color: black;
 }
+
 
 /*∞ D O T S - W R A P P E R */
 .dots_wrapper {
@@ -398,14 +406,14 @@ width: 100px;
   border-radius: 50%;
 }
 
-#github{
+#github {
   position: absolute;
   bottom: 20px;
-  left: 25px;
+  right: 25px;
 }
 
-#github i{
-  font-size: 1.8rem;
+#github i {
+  font-size: 2rem;
 }
 
 /*∞ M E D I A   Q U E R I E S   F O R   M A X - W I D T H : 8 8 0 P X */
@@ -439,10 +447,12 @@ width: 100px;
   .nav__list .nav__item:last-child button {
     margin: 0;
   }
-.show{
-  top: 5%;
-  visibility: visible;
-}
+
+  .show {
+    top: 5%;
+    visibility: visible;
+  }
+
   .btn-wrapper {
     display: none;
   }
@@ -455,8 +465,9 @@ width: 100px;
     display: flex;
   }
 
-  .menu_toggle_btn,.nav__item .search_btn,
-  .nav__item .cart_btn  {
+  .menu_toggle_btn,
+  .nav__item .search_btn,
+  .nav__item .cart_btn {
     display: none;
   }
 }

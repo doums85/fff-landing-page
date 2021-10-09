@@ -35,7 +35,6 @@ gsap.from('.logo', {
   ease: 'expo.inOut',
 });
 
-
 //∞ N A V - I T E M
 gsap.from('.nav__item', {
   opacity: 0,
