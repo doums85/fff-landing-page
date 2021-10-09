@@ -1,30 +1,10 @@
-// Toggle NAV-MENU
- const toggle_btn = document.getElementById('toggle'),
-    navId = document.getElementById('nav__toggle');
-
-    if (toggle_btn && navId) {
-    console.log('mise à jour');
-    toggle_btn.addEventListener('click', () => {
-      navId.classList.toggle('show');
-    });
-  }
-
-
 //∞ C O N T A I N E R S
-gsap.from('.container-left', {
+gsap.from('.container-left, .container-right', {
   delay: 2,
   duration: 1.5,
   top: '100%',
   ease: 'expo.inOut',
 });
-
-gsap.from('.container-right', {
-  delay: 2,
-  duration: 1.5,
-  bottom: '100%',
-  ease: 'expo.inOut',
-});
-
 
 //∞ L O G O
 gsap.from('.logo', {
@@ -47,7 +27,7 @@ gsap.from('.nav__item', {
 
 
 //∞ S E A R C H - B T N
-gsap.from('.search_btn', {
+gsap.from('.btn-wrapper', {
   opacity: 0,
   delay: 4,
   duration: 3,
@@ -55,18 +35,10 @@ gsap.from('.search_btn', {
   ease: 'expo.Out',
 });
 
-//∞ C A R T - B T N
-gsap.from('.cart_btn', {
-  opacity: 0,
-  delay: 4,
-  duration: 3,
-  x: 20,
-  ease: 'expo.Out',
-});
 
 
 //∞ S O C I A L - I T E M
-gsap.from('.social__item', {
+gsap.from('.social__item, #github', {
   opacity: 0,
   delay: 4.5,
   duration: 3,
@@ -76,18 +48,8 @@ gsap.from('.social__item', {
 });
 
 
-//∞ D I R E C T I O N - B T N
-gsap.from('.direction_btn', {
-  opacity: 0,
-  delay: 4.4,
-  x: -20,
-  ease: 'power3.Out',
-  stagger: 0.2,
-});
-
-
-//∞ S L I D E
-gsap.from('.dots_wrapper', {
+//∞ S L I D E & D I R E C T I O N - B T N
+gsap.from('.dots_wrapper, .direction_btn', {
   opacity: 0,
   delay: 4.4,
   x: -20,

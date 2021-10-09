@@ -158,6 +158,9 @@ header {
   margin-left: 3rem;
 }
 
+.nav__list--desktop {
+  display: flex;
+}
 
 .nav__item {
   margin: 0 0 clamp(0.1rem, 0%, 2rem) clamp(0.1rem, 2rem, 2rem);
@@ -409,65 +412,60 @@ header {
 #github {
   position: absolute;
   bottom: 20px;
-  right: 25px;
+  right: 10px;
 }
 
 #github i {
   font-size: 2rem;
 }
 
-/*∞ M E D I A   Q U E R I E S   F O R   M A X - W I D T H : 8 8 0 P X */
-@media screen and (max-width: 880px) {
-  .nav {
-    height: 2.5rem;
-  }
 
-  .nav__menu {
-    position: fixed;
-    inset: -100% 0 auto 0;
-    width: 65%;
-    margin: 0 auto;
-    padding: 2.5rem 0 1rem;
-    text-align: center;
-    background-color: #cccedd;
-    transition: .4s;
-    box-shadow: 0 0 4px rgba(0, 0, 0, .1);
-    border-radius: 2rem;
-    visibility: hidden;
-    z-index: 100;
-  }
+/*∞  F O R   M A X - W I D T H : 8 8 0 P X */
 
-  .nav__list .nav__item:last-child {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5rem;
-    gap: 1rem;
-  }
-
-  .nav__list .nav__item:last-child button {
-    margin: 0;
-  }
-
-  .show {
-    top: 5%;
-    visibility: visible;
-  }
-
-  .btn-wrapper {
-    display: none;
-  }
-
+.nav__list--mobile .nav__item:last-child {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+  gap: 1rem;
 }
 
-/*∞ M E D I A   Q U E R I E S   F O R   M A X - W I D T H : 8 8 0 P X */
-@media screen and (min-width: 880px) {
-  .nav__list {
-    display: flex;
-  }
+.nav__list--mobile .nav__item:last-child button {
+  margin: 0;
+}
 
-  .menu_toggle_btn,
-  .nav__item .search_btn,
-  .nav__item .cart_btn {
-    display: none;
-  }
+.header--mobile .nav {
+  height: 2.5rem;
+}
+
+.header--mobile .nav__menu {
+  position: fixed;
+  inset: -100% 0 auto 0;
+  width: 65%;
+  margin: 0 auto;
+  padding: 2.5rem 0 1rem;
+  text-align: center;
+  background-color: rgb(208, 206, 206);
+  transition: .4s;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+  border-radius: 2rem;
+  visibility: hidden;
+  z-index: 100;
+}
+
+.header--mobile .nav__menu.show {
+  top: 3%;
+  visibility: visible;
+}
+
+.toggle-btn {
+  background: transparent;
+}
+
+.toggle-btn i {
+  font-size: 1.8rem;
+}
+
+.toggle-hiden {
+  display: none;
+  visibility: hidden;
 }

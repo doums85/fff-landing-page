@@ -11,7 +11,34 @@
   <title>France Shop | Landing Page</title>
 </head>
 
-<body>
+<body x-data="{ activeSlide: 1, toggle: false, hideOnDesktop: 881, slides: [
+  {
+    id: 1,
+    image: './img/benzema.png',
+    title: 'Maillot Officiel',
+    subTitle: 'KB9'
+  },
+  {
+    id: 2,
+    image: './img/maillot-femme.png',
+    title: 'Équipe féminine',
+    subTitle: 'K.Dali'
+  },
+  {
+    id: 3,
+    image: './img/lifestyle.png',
+    title: 'LifeStyle',
+    subTitle: 'Le style FFF'
+  },
+  {
+    id: 4,
+    image: './img/pull.png',
+    title: 'Nouvelle Collection',
+    subTitle: 'Automne/Hiver'
+  },
+  ] }"
+  @resize.window="hideOnDesktop = window.innerWidth > 880"
+  >
   <!--∞ O V E R L A Y -->
   <div class="overlay first"></div>
   <div class="overlay second"></div>
@@ -28,15 +55,15 @@
   </div>
 
   <!--∞ N A V -->
-  <header>
-    <nav  class="nav">
+  <header  :class="window.innerWidth > 880 ? 'header--desktop' : 'header--mobile'">
+    <nav class="nav">
       <div class="nav__inner">
         <div class="logo">
           <h3 class="nav__logo">FFF <sup>&reg;</sup></h3>
         </div>
 
-        <div class="nav__menu" id="nav__toggle">
-          <ul class="nav__list">
+        <div :class="toggle ? 'nav__menu show' : 'nav__menu'" id="nav__toggle">
+          <ul :class="window.innerWidth > 880 ? 'nav__list--desktop' : 'nav__list--mobile'">
             <li class="nav__item">
               <a href="#" class="nav__link">Tenues officielles</a>
             </li>
@@ -49,7 +76,7 @@
             <li class="nav__item">
               <a href="#" class="nav__link">Accessoires</a>
             </li>
-            <li class="nav__item">
+            <li x-show="window.innerWidth < 880"  class="nav__item">
               <button class="search_btn">
                 <i class='bx bx-search-alt-2'></i>
               </button>
@@ -61,7 +88,7 @@
         </div>
       </div>
 
-      <div class="btn-wrapper">
+      <div x-show="window.innerWidth > 880"  class="btn-wrapper">
         <button class="search_btn">
           <i class='bx bx-search-alt-2'></i>
         </button>
@@ -70,11 +97,14 @@
         </button>
       </div>
 
-      <button class="menu_toggle_btn" id="toggle">
+      <!--∞ T O G G L E  -->
+        <button
+        @click="toggle = !toggle" class="toggle-btn" x-show="window.innerWidth < 880"  id="toggle">
         <i class='bx bx-grid-alt nav__logo'></i>
       </button>
     </nav>
   </header>
+
 
   <!--∞ S O C I A L   L I N K -->
   <div class="social">
@@ -85,34 +115,9 @@
     </ul>
   </div>
 
-  <!--∞ S L I D E R -->
 
-  <div x-data="{ activeSlide: 1, slides: [
-        {
-          id: 1,
-          image: './img/benzema.png',
-          title: 'Maillot Officiel',
-          subTitle: 'KB9'
-        },
-        {
-          id: 2,
-          image: './img/maillot-femme.png',
-          title: 'Équipe féminine',
-          subTitle: 'K.Dali'
-        },
-        {
-          id: 3,
-          image: './img/lifestyle.png',
-          title: 'LifeStyle',
-          subTitle: 'Le style FFF'
-        },
-        {
-          id: 4,
-          image: './img/pull.png',
-          title: 'Nouvelle Collection',
-          subTitle: 'Automne/Hiver'
-        },
-        ] }" class="product">
+  <!--∞ S L I D E R -->
+  <div class="product">
     <template x-for="slide in slides" :key="slide">
       <div x-show="activeSlide === slide.id" :class="activeSlide === slide.id ? 'product-active' : 'product'">
         <img :src="slide.image" class="product_img" alt="product_img" />
@@ -125,6 +130,7 @@
         </div>
       </div>
     </template>
+
 
     <!--∞ B O T T O M - N A V -->
     <div class="bottom_nav">
@@ -143,10 +149,7 @@
       <div class="dots_wrapper">
         <ul class="dots">
           <template x-for="slide in slides" :key="slide">
-            <li :class="{
-                  'dot active': activeSlide === slide.id,
-                  'dot': activeSlide !== slide.id
-                }" x-on:click="activeSlide = slide.id"></li>
+            <li :class="activeSlide === slide.id ? 'dot active' : 'dot'" x-on:click="activeSlide = slide.id"></li>
           </template>
         </ul>
       </div>
@@ -155,9 +158,9 @@
 
 
   <!--====== Icon github ======-->
-<a id="github" href="https://github.com/doums85/fff-landing-page"  target="_blank">
-  <i class='bx bxl-github'></i>
-</a>
+  <a id="github" href="https://github.com/doums85/fff-landing-page" target="_blank">
+    <i class='bx bxl-github'></i>
+  </a>
 
   <!--====== Script ======-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
